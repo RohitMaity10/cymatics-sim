@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cymatics - Chladni Resonance & Harmonic Geometry Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="lab-container">
+    <canvas id="plate-canvas"></canvas>
+
+    <!-- Top Telemetry Header -->
+    <header class="hud-top">
+      <div class="brand">
+        <span class="acoustic-dot"></span>
+        <h1>CYMATICS // <span class="sub">CHLADNI RESONANCE</span></h1>
+      </div>
+      <div class="telemetry">
+        <span>Resonance: <strong id="mode-readout">m=3, n=5</strong></span>
+        <span>Acoustic Frequency: <strong id="freq-readout">432 Hz</strong></span>
+        <button class="audio-btn" id="audio-btn">🔊 Tone: OFF</button>
+      </div>
+    </header>
+
+    <!-- Control Deck -->
+    <aside class="control-deck">
+      <div class="deck-group">
+        <label>HARMONIC MODAL PRESETS</label>
+        <div class="preset-grid">
+          <button class="btn preset-btn active" data-m="3" data-n="5" data-freq="432">Mandala (3, 5)</button>
+          <button class="btn preset-btn" data-m="2" data-n="4" data-freq="284">Cross (2, 4)</button>
+          <button class="btn preset-btn" data-m="5" data-n="7" data-freq="680">Lattice (5, 7)</button>
+          <button class="btn preset-btn" data-m="6" data-n="8" data-freq="896">Rosette (6, 8)</button>
+        </div>
+      </div>
+
+      <div class="deck-group">
+        <div class="label-row">
+          <label for="freq-slider">Modal Frequency Sweep</label>
+          <span class="badge" id="freq-badge">432 Hz</span>
+        </div>
+        <input type="range" id="freq-slider" min="110" max="1100" step="2" value="432" />
+      </div>
+
+      <div class="deck-group">
+        <div class="label-row">
+          <label for="amplitude-slider">Vibration Amplitude</label>
+          <span class="badge" id="amp-badge">1.4x</span>
+        </div>
+        <input type="range" id="amplitude-slider" min="0.4" max="3.0" step="0.1" value="1.4" />
+      </div>
+
+      <div class="deck-group">
+        <div class="label-row">
+          <label for="damping-slider">Friction & Damping</label>
+          <span class="badge" id="damp-badge">0.92</span>
+        </div>
+        <input type="range" id="damping-slider" min="0.80" max="0.98" step="0.01" value="0.92" />
+      </div>
+
+      <div class="deck-group actions">
+        <button class="btn scatter-btn" id="scatter-btn">✨ Scatter New Sand</button>
+      </div>
+
+      <footer class="deck-hint">
+        <p>🖱️ <strong>Touch / Drag:</strong> Sweep your cursor across the vibrating plate to damp local oscillations, forcing sand into nodal lines.</p>
+      </footer>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
